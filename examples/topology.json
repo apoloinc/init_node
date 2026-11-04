@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Apolo Multi-Node Topology Example",
+  "description": "Debstat collects data, Hadron runs GPU extraction, and Zephyrus hosts coordination and RAG.",
+  "topology_version": "1.0",
+  "local_node": "zephyrus",
+  "nodes": {
+    "zephyrus": {
+      "role": "workstation",
+      "description": "Receives collected data and runs RAG/conversations using a local OpenRouter key (Windows)",
+      "is_local": true
+    },
+    "deb": {
+      "role": "collector",
+      "description": "Debstat scrapes job postings and university data (Debian Linux)",
+      "ssh_alias": "deb",
+      "hostname": "deb",
+      "health_url": "http://127.0.0.1:18000/ready",
+      "notes": "SSH alias on Zephyrus. health_url is local to the remote node; check-peers tests SSH, not HTTP."
+    },
+    "hadron": {
+      "role": "inference",
+      "description": "GPU inference worker (Linux)",
+      "ssh_alias": "hadron",
+      "hostname": "hadron",
+      "health_url": "http://127.0.0.1:8080/health",
+      "notes": "SSH alias on Zephyrus. health_url is local to the remote node; check-peers tests SSH, not HTTP."
+    }
+  },
+  "network": {
+    "ssh_connect_timeout_seconds": 5,
+    "batch_mode": true
+  }
+}

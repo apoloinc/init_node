@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "manifest_version": "1.0",
+  "profiles": {
+    "coordinator": [
+      "apolo-knowledge-data",
+      "korax",
+      "apolo-skill-standard"
+    ],
+    "rag": [
+      "apolo-rag",
+      "apolo-knowledge-data",
+      "apolo-skill-standard"
+    ],
+    "inference": [
+      "korax"
+    ],
+    "collector": [
+      "apolo-scraper"
+    ],
+    "workstation": [
+      "apolo-rag",
+      "apolo-knowledge-data",
+      "apolo-skill-standard"
+    ]
+  },
+  "modules": {
+    "apolo-knowledge-data": {
+      "url": "https://github.com/apoloinc/apolo-knowledge-data.git",
+      "ref": "70142ecb6749cce2cfd250f6673dd486f7bc4954",
+      "dir_name": "apolo-knowledge-data",
+      "runtime": "knowledge-lock",
+      "lock_file": "locks/knowledge.txt",
+      "description": "Canonical job-data and Korax enrichment pipeline"
+    },
+    "korax": {
+      "url": "https://github.com/apoloinc/apolo-korax.git",
+      "ref": "f3773579699f86430a303659664fe7dfa032b39c",
+      "dir_name": "korax",
+      "runtime": "stdlib",
+      "description": "Standalone Apolo/Korax requirements extraction harness"
+    },
+    "apolo-skill-standard": {
+      "url": "https://github.com/fbientrigo/apolo-skill-standard.git",
+      "ref": "cb32ce94a86a2c558ad0ddc72f8e72fb8366df29",
+      "dir_name": "apolo-skill-standard",
+      "runtime": "build-standard",
+      "description": "Model-independent skill identity and evaluation standard"
+    },
+    "apolo-rag": {
+      "url": "https://github.com/apoloinc/apolo-rag.git",
+      "ref": "63770601e2190482534e229645dd18c6c013e6f2",
+      "dir_name": "apolo-rag",
+      "runtime": "uv-project",
+      "description": "Interactive RAG layer with citations (pinned to verified published origin/main)"
+    },
+    "apolo-scraper": {
+      "url": "https://github.com/apoloinc/apolo-scraper.git",
+      "ref": "73b8e4c9fb0b836746ae989595eda21cda0ee833",
+      "dir_name": "apolo-scraper",
+      "runtime": "uv-project",
+      "import_name": "populares_scraper",
+      "description": "Collector for job and university data"
+    }
+  }
+}
