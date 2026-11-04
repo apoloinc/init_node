@@ -1,5 +1,7 @@
 # init_node
 
+[Preparación verificada de nodos](docs/NODE_READINESS.md) · [Simulación de publicación continua](docs/CONTINUOUS_SIMULATION.md).
+
 [Distribución actual, pruebas entre equipos y pendientes](docs/ITERACION_20261104.md).
 
 Una receta común para instalar nodos APOLO por responsabilidad, en Windows o Linux.
