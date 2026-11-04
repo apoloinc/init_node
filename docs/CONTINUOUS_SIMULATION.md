@@ -72,7 +72,7 @@ $py = '.\node_workspace\workstation\repos\apolo-knowledge-data\.venv\Scripts\pyt
 Equivalente en Linux/POSIX:
 
 ```sh
-python3 scripts/simulate_continuous.py --root ./node_workspace/workstation --collector deb --inference hadron --inference-root ~/apolo-node --simulation-id sim-pilot-20261104-01 --interval-seconds 1
+python3 scripts/simulate_continuous.py --root ./node_workspace/workstation --collector deb --inference hadron --inference-root '~/apolo-node' --simulation-id sim-pilot-20261104-01 --interval-seconds 1
 ```
 
 ### Comprobación y lectura del puntero activo
